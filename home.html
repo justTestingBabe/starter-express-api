@@ -13,7 +13,7 @@
         const notice=document.getElementById("notice");
         start_button.addEventListener('click',async()=>{
             if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
-                console.log("Let's get this party started")
+                notice.innerHTML = 'Get User Media Supported'
                 }
             else{
                 notice.innerHTML='Get User Media not supported'
