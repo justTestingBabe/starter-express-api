@@ -12,28 +12,23 @@
         const start_button=document.getElementById("start-button");
         const notice=document.getElementById("notice");
         start_button.addEventListener('click',async()=>{
-            if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
-                notice.innerHTML = 'Get User Media Supported'
-                }
-            else{
-                notice.innerHTML='Get User Media not supported'
-            }
-            // await navigator.mediaDevices.getUserMedia({video: true}).then(()=>{
-            //     notice.innerHTML="listening";
-            // }).catch(()=>{notice.innerHTML='did not work'})
-            // notice.innerHTML='Still not listening';
-
-
-            // const micStream= await navigator.mediaDevices.getUserMedia({audio: true}).catch((err)=>{
-            //     notice.innerHTML=err;
-            //     return;
-            // });
-            // notice.innerHTML="listening"
+            // if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+            //     notice.innerHTML = 'Get User Media Supported'
+            //     }
+            // else{
+            //     notice.innerHTML='Get User Media not supported'
+            // }
             
 
-            // audioContext=new AudioContext();
-            // source=audioContext.createMediaStreamSource(micStream);
-            // source.connect(audioContext.destination)
+
+            const micStream= await navigator.mediaDevices.getUserMedia({audio: true}).then(()=>{
+                notice.innerHTML = 'Listening';
+            });
+            
+
+            audioContext=new AudioContext();
+            source=audioContext.createMediaStreamSource(micStream);
+            source.connect(audioContext.destination)
         })
         
         
