@@ -21,10 +21,10 @@
             
 
 
-            const micStream= await navigator.mediaDevices.getUserMedia({audio: true}).then(()=>{
-                notice.innerHTML = 'Listening';
-            });
-            
+            // const micStream= await navigator.mediaDevices.getUserMedia({audio: true}).then(()=>{
+            //     notice.innerHTML = 'Listening';
+            // });
+             const micStream= await navigator.mediaDevices.getUserMedia({audio: true})
 
             audioContext=new AudioContext();
             source=audioContext.createMediaStreamSource(micStream);
