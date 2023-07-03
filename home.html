@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Button id="start-button">speak</Button>
+    <p id="notice">not listening</p>
+    <script>
+        const start_button=document.getElementById("start-button");
+        const notice=document.getElementById("notice");
+        start_button.addEventListener('click',async()=>{
+            if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+                console.log("Let's get this party started")
+                }
+            else{
+                notice.innerHTML='Get User Media not supported'
+            }
+            // await navigator.mediaDevices.getUserMedia({video: true}).then(()=>{
+            //     notice.innerHTML="listening";
+            // }).catch(()=>{notice.innerHTML='did not work'})
+            // notice.innerHTML='Still not listening';
+
+
+            // const micStream= await navigator.mediaDevices.getUserMedia({audio: true}).catch((err)=>{
+            //     notice.innerHTML=err;
+            //     return;
+            // });
+            // notice.innerHTML="listening"
+            
+
+            // audioContext=new AudioContext();
+            // source=audioContext.createMediaStreamSource(micStream);
+            // source.connect(audioContext.destination)
+        })
+        
+        
+    </script>
+</body>
+</html>
